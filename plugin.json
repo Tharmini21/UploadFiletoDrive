@@ -1,0 +1,98 @@
+{
+  "name": "save_attachmentto_drive",
+  "displayName": "Smartsheet2Google Drive",
+  "description": "Plugin to integrate Smartsheet Attachment to Google Drive",
+  "category": "",
+  "documentLink": "",
+  "needsOAuth": true,
+  "uiSpec": {
+    "providerTabs": [
+      {
+        "type": "OAUTH2",
+        "saveBtn": false,
+        "enable": "hasAgreed || isRegistered",
+        "default": "isRegistered",
+        "nextTab": 1
+      },
+      {
+        "type": "SETTINGS",
+        "text": "Setup",
+        "enable": "isAuthorized",
+        "nextTab": true,
+        "default": "isAuthorized",
+        "params": [
+          "app"
+        ]
+      }
+    ]
+  },
+  "providerData": [
+    {
+      "param": "app",
+      "displayName": "Connect your Drive Account",
+      "description": "",
+      "type": "PARAM",
+      "optional": false,
+      "valueParams": [
+        {
+          "param": "Client Id",
+          "displayName": "Client Id",
+          "description": "Enter Drive Client Id",
+          "type": "STRING"
+        },
+        {
+          "param": "Client Secret",
+          "displayName": "Client Secret",
+          "description": "Enter the Client Secret",
+          "type": "STRING",
+          "optional": false
+        },
+        {
+          "param": "Scopes",
+          "displayName": "Scope",
+          "description": "Enter the Drive Scope",
+          "type": "STRING",
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "module": [
+    {
+      "id": "save_attachmentto_drive",
+      "name": "Update Attachment Drive",
+      "description": "This module will update attachment drive.",
+      "hasReturn": true,
+      "param": [
+        {
+          "param": "Googledrivefolderid",
+          "displayName": "Google Drive FolderId",
+          "description": "Enter the Googledrivefolderid Id.",
+          "type": "STRING",
+          "Group": [
+            {
+              "param": "File Url",
+              "displayName": "File Url",
+              "description": "Enter the File Url.",
+              "type": "STRING"
+            },
+            {
+              "param": "File Name",
+              "displayName": "File Name",
+              "description": "Enter the File Name.",
+              "type": "STRING"
+            },
+            {
+              "param": "MimeType",
+              "displayName": "Mime Type",
+              "description": "Enter the MimeType.",
+              "type": "STRING"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "webhooks": [],
+  "hasOAuth": true
+}
